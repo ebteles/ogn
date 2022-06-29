@@ -1,0 +1,15 @@
+F:\Empresas\Onigus\OnigusTortoise\trunk\Projetos\ogn\gm.db\bin\Debug\gm.db.dll.config
+F:\Empresas\Onigus\OnigusTortoise\trunk\Projetos\ogn\gm.db\bin\Debug\gm.db.dll
+F:\Empresas\Onigus\OnigusTortoise\trunk\Projetos\ogn\gm.db\bin\Debug\gm.db.pdb
+F:\Empresas\Onigus\OnigusTortoise\trunk\Projetos\ogn\gm.db\bin\Debug\Allupa.Sistema.Banco.dll
+F:\Empresas\Onigus\OnigusTortoise\trunk\Projetos\ogn\gm.db\bin\Debug\EntityFramework.dll
+F:\Empresas\Onigus\OnigusTortoise\trunk\Projetos\ogn\gm.db\bin\Debug\EntityFramework.SqlServer.dll
+F:\Empresas\Onigus\OnigusTortoise\trunk\Projetos\ogn\gm.db\bin\Debug\gm.db.model.dll
+F:\Empresas\Onigus\OnigusTortoise\trunk\Projetos\ogn\gm.db\bin\Debug\System.Linq.Dynamic.dll
+F:\Empresas\Onigus\OnigusTortoise\trunk\Projetos\ogn\gm.db\bin\Debug\Allupa.Sistema.Banco.pdb
+F:\Empresas\Onigus\OnigusTortoise\trunk\Projetos\ogn\gm.db\bin\Debug\gm.db.model.pdb
+F:\Empresas\Onigus\OnigusTortoise\trunk\Projetos\ogn\gm.db\bin\Debug\EntityFramework.xml
+F:\Empresas\Onigus\OnigusTortoise\trunk\Projetos\ogn\gm.db\bin\Debug\EntityFramework.SqlServer.xml
+F:\Empresas\Onigus\OnigusTortoise\trunk\Projetos\ogn\gm.db\obj\Debug\gm.db.csprojResolveAssemblyReference.cache
+F:\Empresas\Onigus\OnigusTortoise\trunk\Projetos\ogn\gm.db\obj\Debug\gm.db.dll
+F:\Empresas\Onigus\OnigusTortoise\trunk\Projetos\ogn\gm.db\obj\Debug\gm.db.pdb

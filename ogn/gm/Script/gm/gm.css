@@ -1,0 +1,457 @@
+﻿/* Padrão ALLUPA (css) - INICIO */
+@charset "utf-8";
+
+* {
+    font-family: "Segoe UI Light","Segoe UI",Verdana, Tahoma, Arial;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    color: #000000;
+    background-image: url('../../Imagens/fundo.png');
+}
+
+body {
+    overflow: hidden;
+}
+
+.bodyGeral {
+    padding: 0;
+    color: #444444;
+    font: normal 12px/1.8em "Segoe UI Light","Segoe UI",Verdana, Tahoma, Arial;
+}
+
+.divTable {
+    display: table;
+}
+
+.divTR {
+    display: table-row;
+    width: auto;
+}
+
+.divTD {
+    display: table-cell;
+}
+
+/* 
+    componentes 
+    Referência: http://www.cssportal.com/form-elements/text-box.htm
+*/
+
+/* INPUT - Início */
+input:not([type]),
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"] {
+    padding: 4px 4px 4px 4px;
+    border: 1px solid #CCCCCC;
+    height: 18px;
+    font-family: "Segoe UI Light","Segoe UI",Verdana, Tahoma, Arial;
+    outline: 0;
+}
+
+    input[type="text"].lupa1, .lupa1 {
+        background: #FFFFFF url("/apa/Imagens/search.png") no-repeat 4px 4px;
+        padding: 4px 4px 4px 22px;
+        border: 1px solid #CCCCCC;
+        height: 18px;
+        outline: 0;
+    }
+
+textarea {
+    padding: 4px 4px 4px 4px;
+    border: 1px solid #CCCCCC;
+    font-family: "Segoe UI Light","Segoe UI",Verdana, Tahoma, Arial;
+    outline: 0;
+}
+/* INPUT - Fim */
+
+/* SELECT - Início */
+select {
+    padding: 4px 4px 4px 4px;
+    border: 1px solid #CCCCCC;
+    font-family: "Segoe UI Light","Segoe UI",Verdana, Tahoma, Arial !important;
+    height: 28px;
+    outline: 0;
+    /*color: #444444;*/
+}
+
+input[type="text"].lupa2, .lupa2 {
+    background: #FFFFFF url("/apa/Imagens/search.png") no-repeat 4px 4px;
+    padding: 4px 4px 4px 22px;
+    border: 1px solid #CCCCCC;
+    height: 28px;
+    -webkit-appearance: none; /*para chrome */
+    outline: 0;
+}
+
+/* SELECT - Fim */
+
+.botao {
+    background: #D4D4D4;
+    border: 1px solid #D4D4D4;
+    display: inline-block;
+    color: #4E4E4E;
+    font-family: "Segoe UI Light","Segoe UI",Verdana, Tahoma, Arial;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 15px;
+    text-decoration: none;
+    cursor: default;
+}
+
+    .botao:hover {
+        background: #515152;
+        color: #FFFFFF;
+        background-color: #66B3FF;
+        font-weight: bold;
+        font-family: "Segoe UI Light","Segoe UI",Verdana, Tahoma, Arial;
+        cursor: pointer;
+    }
+
+    .botao:active {
+        position: relative;
+        top: 1px;
+    }
+
+/* Padrão ALLUPA (css) - FIM */
+
+/* Padrão ALLUPA (onepageview) - Inicio */
+.boxMenuFixo {
+    position: fixed;
+    width: 5%;
+    height: 40px;
+    z-index: 999;
+    cursor: pointer;
+    right: 0px;
+    top: 0px;
+    padding-top: 20px;
+    overflow: hidden;
+    border: 1px solid #F1F1F1;
+    opacity:0.5;
+    background-color:white;
+    text-align: center;
+}
+.boxMenuFixo:hover{
+    border: 1px solid #2A6BA6;
+}
+/*.boxMenuFixo {
+    position: absolute;
+    float: right;
+    width: 5%;
+    height: 40px;
+    z-index: 999;
+    cursor: pointer;
+    right: 0px;
+    top: -10px;
+    padding-top: 20px;
+    overflow: hidden;
+    border: 1px solid #F1F1F1;
+    background: white;
+    text-align: center;
+}*/
+
+.paginaHeader {
+    width: 100%;
+    padding: 0;
+    display: inline-block;
+    background-color: white;
+    min-height: 0;
+    margin-left: 0px;
+    margin-top: -9px;
+    margin-bottom: 9px;
+    height: 60px;
+}
+
+.paginaHeaderBox1 {
+    margin-left: 11px;
+    width: 10.5%;
+    height: inherit;
+    vertical-align: middle;
+    border-right: 1px solid #F1F1F1;
+    float: left;
+    overflow: hidden;
+}
+
+    .paginaHeaderBox1 div {
+        height: inherit;
+    }
+
+    .paginaHeaderBox1 img {
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        position: relative;
+        top: 9px;
+        cursor: inherit;
+    }
+
+    .paginaHeaderBox1 #nomeModulo {
+        position: relative;
+        top: 18px;
+        left: 8px;
+        font-size: 10px;
+    }
+
+.paginaHeaderBox2 {
+    height: inherit;
+    vertical-align: middle;
+    float: left;
+}
+
+    .paginaHeaderBox2 #nomeFormulario {
+        position: relative;
+        top: 18px;
+        left: 5px;
+        font-size: 28px;
+    }
+
+/*.paginaBody {
+    width: 98%;
+    padding: 0;
+    min-height: 0;
+    margin-top: -9px;
+    margin-bottom: 9px;
+    margin-left: 0px;
+}*/
+.paginaBody {
+    width: 99%;
+    margin: 0 auto;
+    left: 50%;
+}
+
+.filtroRight {
+    width: 100%;
+    height: 100%;
+    color: white;
+    margin-left: 5px;
+    margin-bottom: 10px;
+}
+
+    .filtroRight select {
+        width: 170px;
+    }
+
+.cssMakeBox {
+    position: relative;
+    margin-right: 2%;
+    margin-top: 10px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+    border: 1px solid lightgray;
+}
+
+
+.cssMakeBox2 {
+    margin-right: 2%;
+}
+
+.boxPresencaAll {
+    width: 990px;
+    height: 180px;
+}
+
+.tituloFiltro {
+    padding-left: 5px;
+    font-size: 16px;
+}
+
+.botaoConfiguracao {
+    background: #D4D4D4;
+    border: 1px solid #D4D4D4;
+    display: inline-block;
+    color: #4E4E4E;
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none;
+    position: relative;
+    top: 15px;
+    width: 188px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    text-align: center;
+    cursor: pointer;
+}
+
+    .botaoConfiguracao:hover {
+        color: #FFFFFF;
+        background-color: #66B3FF;
+    }
+
+/* Box Indicadores - Início */
+
+.box {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.boxup::after {
+    font-family: FontAwesome;
+    content: "\f118";
+    position: absolute;
+    font-size: 60px;
+    color: green;
+    opacity: 0.1;
+    top: 43%;
+    right: 0%;
+}
+
+.boxdown::after {
+    font-family: FontAwesome;
+    content: "\f119";
+    position: absolute;
+    font-size: 60px;
+    color: red;
+    opacity: 0.1;
+    top: 43%;
+    right: 0%;
+}
+
+.boxmiddle::after {
+    font-family: FontAwesome;
+    content: "\f11a";
+    position: absolute;
+    font-size: 60px;
+    color: red;
+    opacity: 0.1;
+    top: 43%;
+    right: 0%;
+}
+
+.boxup:hover,
+.boxdown:hover,
+.boxmiddle:hover {
+    -moz-box-shadow: 0 0 10px #505050;
+    -webkit-box-shadow: 0 0 10px #505050;
+    box-shadow: 0 0 10px #505050;
+}
+
+/* Box Indicadores - Fim */
+
+/* Filtro Painel Direito - Início */
+#divFiltroAccordion {
+    background-color: #344152;
+}
+
+    #divFiltroAccordion .ui-icon {
+        display: none;
+    }
+
+    #divFiltroAccordion .ui-accordion-content {
+        border-color: #344152;
+        background-color: #344152;
+    }
+
+    #divFiltroAccordion h3 {
+        cursor: pointer;
+        font-weight: normal;
+        font-size: 18px;
+        height: 38px;
+        vertical-align: middle;
+        padding-top: 13px;
+        background-color:#EFF1F4;
+        border-color: #EFF1F4;
+        color: #122134;
+        border-bottom: 1px solid #344152;
+    }
+
+    #divFiltroAccordion .botaoConfiguracao {
+        color: white;
+        background-color: black;
+    }
+
+        #divFiltroAccordion .botaoConfiguracao:hover {
+            color: #FFFFFF;
+            background-color: #515152;
+        }
+
+/* Filtro Painel Direito - Fim */
+
+/* Filtros Ativos na Página - Início */
+
+.filtrosAtivos {
+    text-align: left;
+}
+
+    .filtrosAtivos ul {
+        list-style: none;
+        display: inline-table;
+    }
+
+        .filtrosAtivos ul li {
+            display: inline;
+            position: relative; /*acréscimo teles*/
+            left: -40px; /*acréscimo teles*/
+        }
+
+            .filtrosAtivos ul li a {
+                display: block;
+                float: left;
+                height: 30px;
+                background: lightgray /*#344152*/;
+                text-align: center;
+                padding: 10px 10px 0 20px;
+                position: relative;
+                margin: 0 1px 0 0;
+                font-size: 14px;
+                text-decoration: none;
+                color: black /*#fff*/;
+            }
+
+                .filtrosAtivos ul li a:after {
+                    content: "";
+                    border-top: 20px solid transparent;
+                    border-bottom: 20px solid transparent;
+                    border-left: 20px solid lightgray /*#344152*/;
+                    position: absolute;
+                    right: -20px;
+                    top: 0;
+                    z-index: 1;
+                }
+
+                .filtrosAtivos ul li a:before {
+                    content: "";
+                    border-top: 20px solid transparent;
+                    border-bottom: 20px solid transparent;
+                    border-left: 20px solid white /*#d4f2ff*/;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                }
+
+            .filtrosAtivos ul li:first-child a {
+                border-top-left-radius: 5px;
+                border-bottom-left-radius: 5px;
+            }
+
+                .filtrosAtivos ul li:first-child a:before {
+                    display: none;
+                }
+
+            .filtrosAtivos ul li:last-child a {
+                padding-right: 10px;
+                border-top-right-radius: 5px;
+                border-bottom-right-radius: 5px;
+            }
+
+                .filtrosAtivos ul li:last-child a:after {
+                    display: none;
+                }
+
+            .filtrosAtivos ul li a:hover {
+                background: #2A6BA6;
+                color: white;
+            }
+
+                .filtrosAtivos ul li a:hover:after {
+                    border-left-color: #2A6BA6;
+                }
+
+/* Filtros Ativos na Página - Fim */
+/* Padrão ALLUPA (onepageview) - FIM */

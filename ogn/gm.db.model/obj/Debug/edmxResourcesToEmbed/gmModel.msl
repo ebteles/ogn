@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="gmModelStoreContainer" CdmEntityContainer="gmEntities">
+    <EntitySetMapping Name="geo_brasil_cidade">
+      <EntityTypeMapping TypeName="gmModel.geo_brasil_cidade">
+        <MappingFragment StoreEntitySet="geo_brasil_cidade">
+          <ScalarProperty Name="id_geo_cidade" ColumnName="id_geo_cidade" />
+          <ScalarProperty Name="categoria" ColumnName="categoria" />
+          <ScalarProperty Name="uf" ColumnName="uf" />
+          <ScalarProperty Name="municipio" ColumnName="municipio" />
+          <ScalarProperty Name="distrito" ColumnName="distrito" />
+          <ScalarProperty Name="populacao" ColumnName="populacao" />
+          <ScalarProperty Name="latitude" ColumnName="latitude" />
+          <ScalarProperty Name="longitude" ColumnName="longitude" />
+          <ScalarProperty Name="altitude" ColumnName="altitude" />
+          <ScalarProperty Name="cep" ColumnName="cep" />
+          <ScalarProperty Name="poligono" ColumnName="poligono" />
+          <ScalarProperty Name="id_geo_meso" ColumnName="id_geo_meso" />
+          <ScalarProperty Name="id_geo_micro" ColumnName="id_geo_micro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="geo_brasil_meso">
+      <EntityTypeMapping TypeName="gmModel.geo_brasil_meso">
+        <MappingFragment StoreEntitySet="geo_brasil_meso">
+          <ScalarProperty Name="id_geo_meso" ColumnName="id_geo_meso" />
+          <ScalarProperty Name="uf" ColumnName="uf" />
+          <ScalarProperty Name="meso_regiao" ColumnName="meso_regiao" />
+          <ScalarProperty Name="poligono" ColumnName="poligono" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="geo_brasil_micro">
+      <EntityTypeMapping TypeName="gmModel.geo_brasil_micro">
+        <MappingFragment StoreEntitySet="geo_brasil_micro">
+          <ScalarProperty Name="id_geo_micro" ColumnName="id_geo_micro" />
+          <ScalarProperty Name="id_geo_meso" ColumnName="id_geo_meso" />
+          <ScalarProperty Name="micro_regiao" ColumnName="micro_regiao" />
+          <ScalarProperty Name="poligono" ColumnName="poligono" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="geo_brasil_uf">
+      <EntityTypeMapping TypeName="gmModel.geo_brasil_uf">
+        <MappingFragment StoreEntitySet="geo_brasil_uf">
+          <ScalarProperty Name="uf" ColumnName="uf" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="poligono" ColumnName="poligono" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tv_emissora">
+      <EntityTypeMapping TypeName="gmModel.tv_emissora">
+        <MappingFragment StoreEntitySet="tv_emissora">
+          <ScalarProperty Name="id_emissora" ColumnName="id_emissora" />
+          <ScalarProperty Name="id_rede" ColumnName="id_rede" />
+          <ScalarProperty Name="uf" ColumnName="uf" />
+          <ScalarProperty Name="numero_canal" ColumnName="numero_canal" />
+          <ScalarProperty Name="nome_emissora" ColumnName="nome_emissora" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tv_rede">
+      <EntityTypeMapping TypeName="gmModel.tv_rede">
+        <MappingFragment StoreEntitySet="tv_rede">
+          <ScalarProperty Name="id_rede" ColumnName="id_rede" />
+          <ScalarProperty Name="id_tipo_rede" ColumnName="id_tipo_rede" />
+          <ScalarProperty Name="nome_rede" ColumnName="nome_rede" />
+          <ScalarProperty Name="razao_social" ColumnName="razao_social" />
+          <ScalarProperty Name="cidade_origem" ColumnName="cidade_origem" />
+          <ScalarProperty Name="populacao_atingida" ColumnName="populacao_atingida" />
+          <ScalarProperty Name="donos" ColumnName="donos" />
+          <ScalarProperty Name="nomes_anteriores" ColumnName="nomes_anteriores" />
+          <ScalarProperty Name="id_rede_pai" ColumnName="id_rede_pai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tv_tipo_rede">
+      <EntityTypeMapping TypeName="gmModel.tv_tipo_rede">
+        <MappingFragment StoreEntitySet="tv_tipo_rede">
+          <ScalarProperty Name="id_tipo_rede" ColumnName="id_tipo_rede" />
+          <ScalarProperty Name="nome_tipo_rede" ColumnName="nome_tipo_rede" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="tv_emissora_cobertura" TypeName="gmModel.tv_emissora_cobertura" StoreEntitySet="tv_emissora_cobertura">
+      <EndProperty Name="tv_emissora">
+        <ScalarProperty Name="id_emissora" ColumnName="id_emissora" />
+      </EndProperty>
+      <EndProperty Name="geo_brasil_cidade">
+        <ScalarProperty Name="id_geo_cidade" ColumnName="id_geo_cidade" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

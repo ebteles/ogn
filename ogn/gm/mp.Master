@@ -1,0 +1,244 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="mp.master.cs" Inherits="gm.mp" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+
+    <link href="/gm/Script/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="/gm/Script/gm/gm.css" rel="stylesheet" />
+
+    <script src="/gm/Script/jquery/modernizr-2.6.2.js"></script>
+    <script src="/gm/Script/jquery/jquery-1.11.3.min.js"></script>
+    <script src="/gm/Script/jquery/jquery-ui-1.11.4.custom.min.js"></script>
+
+    <script type="text/javascript">
+
+        // regionalização: pt-BR
+        jQuery(function ($) {
+            $.datepicker.regional['pt'] = {
+                closeText: 'Fechar',
+                prevText: '<Anterior',
+                nextText: 'Seguinte',
+                currentText: 'Hoje',
+                monthNames: ['Janeiro', 'Fevereiro', 'Mar&ccedil;o', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+                monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+                dayNames: ['Domingo', 'Segunda-feira', 'Ter&ccedil;a-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'S&aacute;bado'],
+                dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'S&aacute;b'],
+                dayNamesMin: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'S&aacute;b'],
+                weekHeader: 'Sem',
+                dateFormat: 'dd/mm/yy',
+                firstDay: 0,
+                isRTL: false,
+                showMonthAfterYear: false,
+                yearSuffix: ''
+            };
+            $.datepicker.setDefaults($.datepicker.regional['pt']);
+        });
+
+        $(function () {
+            $(document).tooltip();
+        });
+
+        /*
+            Controle de Sessão: Caso página fique inativa por "n" minutos
+        */
+        function sessionTimeout(nMinutos) {
+
+            nMinutos = typeof (nMinutos) == 'undefined' ? 20 : nMinutos;
+
+            var nMilessegundos = (nMinutos * 60 * 1000) - 500; //diferença de 500 para registra logout...
+
+            window.clearTimeout(nMilessegundos);
+            window.setTimeout('logout("timeout")', nMilessegundos);
+        }
+
+    </script>
+
+    <style>
+        #cssmenu {
+            width: 100% !important;
+        }
+
+        #divHeaderContainer {
+            width: 100%;
+            height: 60px !important;
+            background-color: #B43431;
+        }
+
+        #divHeaderMenu {
+            width: 4%;
+            float:left;
+            height: inherit;
+            text-align: center;
+            cursor: pointer;
+            border-right: 1px solid rgba(255, 255, 255, .2);
+        }
+
+        #divHeaderLogo {
+            width: 17%;
+            margin-left: 4%;
+            height: inherit;
+            float: left;
+            margin-left: 5px;
+            border-right: 1px solid rgba(255, 255, 255, .2);
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        #divHeaderCentro {
+            position: relative;
+            float: left;
+            width: 50%;
+            height: 60px;
+            cursor: pointer;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        #divHeaderUsuario {
+            position: relative;
+            float: right;
+            width: 8%;
+            min-width: 120px;
+            height: 60px;
+            border-left: 1px solid rgba(255, 255, 255, .2);
+            cursor: pointer;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+
+        #divCabecalhoRede {
+            width: 100%;
+            height: 40px;
+            text-align: center;
+            position: relative;
+            top: 1px;
+            background: -webkit-linear-gradient(#1A1A1A, white); /* For Safari 5.1 to 6.0 */
+            background: -o-linear-gradient(#1A1A1A, white); /* For Opera 11.1 to 12.0 */
+            background: -moz-linear-gradient(#1A1A1A, white); /* For Firefox 3.6 to 15 */
+            background: linear-gradient(#1A1A1A, white); /* Standard syntax (must be last) */
+        }
+
+        /*início tooltip*/
+        .ui-tooltip {
+            padding: 8px;
+            position: absolute;
+            z-index: 9999;
+            -o-box-shadow: 0 0 5px #aaa;
+            -moz-box-shadow: 0 0 5px #aaa;
+            -webkit-box-shadow: 0 0 5px #aaa;
+            box-shadow: 0 0 5px #aaa;
+        }
+
+        * html .ui-tooltip {
+            background-image: none;
+        }
+
+        body .ui-tooltip {
+            border: 1px solid #cde1f4;
+            border-radius: 5px;
+            background-color: lightyellow;
+        }
+        /*fim tooltip*/
+    </style>
+
+</head>
+<body>
+    <div style="text-align: left; margin: 0 auto; width: 100%">
+
+        <form id="frmAllupa" runat="server">
+            <div class="bodyGeral">
+
+                <div id="divHeaderContainer">
+                    <div id="divHeaderMenu" title="Menu">
+                        <i class="fa fa-bars fa-2x" style="color: white; position: relative; top: 18px"></i>
+                    </div>
+                    <div id="divHeaderLogo">
+                        <img src="/apa/Imagens/allupa_logotipo.png" style="border: 0px; position: relative; top: 15px" onclick="javascript:document.location.href='/apa/a001/default.aspx';" />
+                    </div>
+                    <div id="divHeaderCentro">
+                        <span id="spanTitulo" style="color: white; font-size: 24px; position: relative; top: 18px; margin-left: 10px"></span>
+                    </div>
+                    <div id="divHeaderUsuario" onclick="logout('sair')" title="Sair do sistema">
+                        <i class="fa fa-user fa-2x" style="color: white; position: relative; top: 18px; margin-left: 5px"></i>
+                        <label id="lblUsuario" runat="server" style="color: white; position: relative; top: 18px; margin-left: 2px"></label>
+                    </div>
+                </div>
+
+                <div style="z-index: 800; position: relative; top: 10px">
+                    <asp:ContentPlaceHolder ID="body" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+
+                <div id="rodape"></div>
+
+            </div>
+        </form>
+    </div>
+
+    <script type="text/javascript">
+
+        // desabilitar ENTER em formulário
+        $("form").keypress(function (e) {
+            if (e.which == 13) {
+                return false;
+            }
+        });
+
+        // controle de sessão:
+        var nTimeout = "<%=Session.Timeout%>";
+        sessionTimeout(nTimeout);
+
+        $('#spanTitulo').html('Allumine');
+
+
+        function logout(id) {
+
+            var host = document.location.hostname.toLocaleLowerCase();
+            var url = document.location.href;
+            var msg = "";
+
+            switch (id) {
+                case 'timeout':
+                    msg = "?mensagem=Sua sessão foi encerrada por motivo de segurança. Favor autenticar-se novamente.";
+                    break;
+                case 'sair':
+                    msg = "?mensagem=";
+                    break;
+            }
+
+            url = document.location.href;
+            url = url.substr(0, url.indexOf('\a001') - 1) + '/a001/logout.aspx';
+
+            document.location.href = url + msg;
+        }
+
+        function pvConfiguracao() {
+
+            if (gmenuAllupaVisivel) {
+                $('#btnMenu1').trigger('click');
+            }
+            var aDados = document.location.pathname.split('/');
+            var cPagina = aDados[aDados.length - 1];
+
+            cPagina = cPagina.trim().replace(/.aspx/g, '').toLocaleLowerCase();
+
+            var js = cPagina + 'Configuracao()';
+
+            eval(js);
+
+        }
+
+    </script>
+</body>
+</html>
+

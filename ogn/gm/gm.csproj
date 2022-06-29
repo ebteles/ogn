@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{19C5C5F0-601C-4769-BCA9-7BD0C7BD8D3F}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>gm</RootNamespace>
+    <AssemblyName>gm</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="a001\Default.aspx" />
+    <Content Include="a001\login.aspx" />
+    <Content Include="a001\logout.aspx" />
+    <Content Include="a001\modGM\home.aspx" />
+    <Content Include="Imagens\fundo.png" />
+    <Content Include="Script\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Script\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Script\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Script\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Script\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Script\font-awesome\less\animated.less" />
+    <Content Include="Script\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Script\font-awesome\less\core.less" />
+    <Content Include="Script\font-awesome\less\fixed-width.less" />
+    <Content Include="Script\font-awesome\less\font-awesome.less" />
+    <Content Include="Script\font-awesome\less\icons.less" />
+    <Content Include="Script\font-awesome\less\larger.less" />
+    <Content Include="Script\font-awesome\less\list.less" />
+    <Content Include="Script\font-awesome\less\mixins.less" />
+    <Content Include="Script\font-awesome\less\path.less" />
+    <Content Include="Script\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Script\font-awesome\less\stacked.less" />
+    <Content Include="Script\font-awesome\less\variables.less" />
+    <Content Include="Script\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Script\font-awesome\scss\_animated.scss" />
+    <Content Include="Script\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Script\font-awesome\scss\_core.scss" />
+    <Content Include="Script\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Script\font-awesome\scss\_icons.scss" />
+    <Content Include="Script\font-awesome\scss\_larger.scss" />
+    <Content Include="Script\font-awesome\scss\_list.scss" />
+    <Content Include="Script\font-awesome\scss\_mixins.scss" />
+    <Content Include="Script\font-awesome\scss\_path.scss" />
+    <Content Include="Script\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Script\font-awesome\scss\_stacked.scss" />
+    <Content Include="Script\font-awesome\scss\_variables.scss" />
+    <Content Include="mp.Master" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <Content Include="ws\gmGeo.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Script\font-awesome\css\font-awesome.css" />
+    <Content Include="Script\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Script\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Script\font-awesome\HELP-US-OUT.txt" />
+    <Content Include="Script\geoxml3\geoxml3.js" />
+    <Content Include="Script\geoxml3\ProjectedOverlay.js" />
+    <Content Include="Script\gm\gm.css" />
+    <Content Include="Script\gm\gm.js" />
+    <Content Include="Script\jquery\jquery-1.11.3.min.js" />
+    <Content Include="Script\jquery\jquery-ui-1.11.4.custom.min.js" />
+    <Content Include="Script\jquery\modernizr-2.6.2.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="a001\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="a001\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="a001\logout.aspx.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="a001\logout.aspx.designer.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="a001\modGM\home.aspx.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="a001\modGM\home.aspx.designer.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="app_code\GlobalPages.cs" />
+    <Compile Include="app_code\GobalLogin.cs" />
+    <Compile Include="a001\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="a001\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="mp.Master.cs">
+      <DependentUpon>mp.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mp.Master.designer.cs">
+      <DependentUpon>mp.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ws\gmGeo.ashx.cs">
+      <DependentUpon>gmGeo.ashx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\..\Allupa\AllupaTortoise\trunk\WEB\Seguranca\Allupa.Seguranca\Allupa.Seguranca.csproj">
+      <Project>{c2b72576-2017-4f25-bb0d-743c98501916}</Project>
+      <Name>Allupa.Seguranca</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\gm.db\gm.db.csproj">
+      <Project>{0914aa0f-7869-4731-8bf0-820b04f6cf90}</Project>
+      <Name>gm.db</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>38281</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:33823/gm</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

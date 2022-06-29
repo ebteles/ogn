@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="gmModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="geo_brasil_cidade">
+    <Key>
+      <PropertyRef Name="id_geo_cidade" />
+    </Key>
+    <Property Name="id_geo_cidade" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="categoria" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="uf" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="municipio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="distrito" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="populacao" Type="Int32" />
+    <Property Name="latitude" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="longitude" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="altitude" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="cep" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="poligono" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="id_geo_meso" Type="Int16" />
+    <Property Name="id_geo_micro" Type="Int16" />
+    <NavigationProperty Name="geo_brasil_uf" Relationship="Self.fk_geo_bra_cid_x_geo_bra_uf" FromRole="geo_brasil_cidade" ToRole="geo_brasil_uf" />
+    <NavigationProperty Name="tv_emissora" Relationship="Self.tv_emissora_cobertura" FromRole="geo_brasil_cidade" ToRole="tv_emissora" />
+  </EntityType>
+  <EntityType Name="geo_brasil_meso">
+    <Key>
+      <PropertyRef Name="id_geo_meso" />
+    </Key>
+    <Property Name="id_geo_meso" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="uf" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="meso_regiao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="poligono" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="geo_brasil_uf" Relationship="Self.fk_geo_bra_mes_x_geo_bra_uf" FromRole="geo_brasil_meso" ToRole="geo_brasil_uf" />
+    <NavigationProperty Name="geo_brasil_micro" Relationship="Self.fk_geo_bra_mic_x_geo_bra_mes" FromRole="geo_brasil_meso" ToRole="geo_brasil_micro" />
+  </EntityType>
+  <EntityType Name="geo_brasil_micro">
+    <Key>
+      <PropertyRef Name="id_geo_micro" />
+    </Key>
+    <Property Name="id_geo_micro" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_geo_meso" Type="Int16" Nullable="false" />
+    <Property Name="micro_regiao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="poligono" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="geo_brasil_meso" Relationship="Self.fk_geo_bra_mic_x_geo_bra_mes" FromRole="geo_brasil_micro" ToRole="geo_brasil_meso" />
+  </EntityType>
+  <EntityType Name="geo_brasil_uf">
+    <Key>
+      <PropertyRef Name="uf" />
+    </Key>
+    <Property Name="uf" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="poligono" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="geo_brasil_cidade" Relationship="Self.fk_geo_bra_cid_x_geo_bra_uf" FromRole="geo_brasil_uf" ToRole="geo_brasil_cidade" />
+    <NavigationProperty Name="geo_brasil_meso" Relationship="Self.fk_geo_bra_mes_x_geo_bra_uf" FromRole="geo_brasil_uf" ToRole="geo_brasil_meso" />
+  </EntityType>
+  <EntityType Name="tv_emissora">
+    <Key>
+      <PropertyRef Name="id_emissora" />
+    </Key>
+    <Property Name="id_emissora" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_rede" Type="Int16" Nullable="false" />
+    <Property Name="uf" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="numero_canal" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="nome_emissora" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="tv_rede" Relationship="Self.fk_tv_emi_x_tv_red" FromRole="tv_emissora" ToRole="tv_rede" />
+    <NavigationProperty Name="geo_brasil_cidade" Relationship="Self.tv_emissora_cobertura" FromRole="tv_emissora" ToRole="geo_brasil_cidade" />
+  </EntityType>
+  <EntityType Name="tv_rede">
+    <Key>
+      <PropertyRef Name="id_rede" />
+    </Key>
+    <Property Name="id_rede" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_tipo_rede" Type="Int16" Nullable="false" />
+    <Property Name="nome_rede" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="razao_social" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="cidade_origem" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="populacao_atingida" Type="Int32" />
+    <Property Name="donos" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="nomes_anteriores" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+    <Property Name="id_rede_pai" Type="Int16" />
+    <NavigationProperty Name="tv_emissora" Relationship="Self.fk_tv_emi_x_tv_red" FromRole="tv_rede" ToRole="tv_emissora" />
+    <NavigationProperty Name="tv_tipo_rede" Relationship="Self.fk_tv_red_x_tv_tip_red" FromRole="tv_rede" ToRole="tv_tipo_rede" />
+  </EntityType>
+  <EntityType Name="tv_tipo_rede">
+    <Key>
+      <PropertyRef Name="id_tipo_rede" />
+    </Key>
+    <Property Name="id_tipo_rede" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nome_tipo_rede" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="tv_rede" Relationship="Self.fk_tv_red_x_tv_tip_red" FromRole="tv_tipo_rede" ToRole="tv_rede" />
+  </EntityType>
+  <Association Name="fk_geo_bra_cid_x_geo_bra_uf">
+    <End Role="geo_brasil_uf" Type="Self.geo_brasil_uf" Multiplicity="1" />
+    <End Role="geo_brasil_cidade" Type="Self.geo_brasil_cidade" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="geo_brasil_uf">
+        <PropertyRef Name="uf" />
+      </Principal>
+      <Dependent Role="geo_brasil_cidade">
+        <PropertyRef Name="uf" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_geo_bra_mes_x_geo_bra_uf">
+    <End Role="geo_brasil_uf" Type="Self.geo_brasil_uf" Multiplicity="1" />
+    <End Role="geo_brasil_meso" Type="Self.geo_brasil_meso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="geo_brasil_uf">
+        <PropertyRef Name="uf" />
+      </Principal>
+      <Dependent Role="geo_brasil_meso">
+        <PropertyRef Name="uf" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_geo_bra_mic_x_geo_bra_mes">
+    <End Role="geo_brasil_meso" Type="Self.geo_brasil_meso" Multiplicity="1" />
+    <End Role="geo_brasil_micro" Type="Self.geo_brasil_micro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="geo_brasil_meso">
+        <PropertyRef Name="id_geo_meso" />
+      </Principal>
+      <Dependent Role="geo_brasil_micro">
+        <PropertyRef Name="id_geo_meso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_tv_emi_x_tv_red">
+    <End Role="tv_rede" Type="Self.tv_rede" Multiplicity="1" />
+    <End Role="tv_emissora" Type="Self.tv_emissora" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tv_rede">
+        <PropertyRef Name="id_rede" />
+      </Principal>
+      <Dependent Role="tv_emissora">
+        <PropertyRef Name="id_rede" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_tv_red_x_tv_tip_red">
+    <End Role="tv_tipo_rede" Type="Self.tv_tipo_rede" Multiplicity="1" />
+    <End Role="tv_rede" Type="Self.tv_rede" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tv_tipo_rede">
+        <PropertyRef Name="id_tipo_rede" />
+      </Principal>
+      <Dependent Role="tv_rede">
+        <PropertyRef Name="id_tipo_rede" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="tv_emissora_cobertura">
+    <End Role="tv_emissora" Type="Self.tv_emissora" Multiplicity="*" />
+    <End Role="geo_brasil_cidade" Type="Self.geo_brasil_cidade" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="gmEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="geo_brasil_cidade" EntityType="Self.geo_brasil_cidade" />
+    <EntitySet Name="geo_brasil_meso" EntityType="Self.geo_brasil_meso" />
+    <EntitySet Name="geo_brasil_micro" EntityType="Self.geo_brasil_micro" />
+    <EntitySet Name="geo_brasil_uf" EntityType="Self.geo_brasil_uf" />
+    <EntitySet Name="tv_emissora" EntityType="Self.tv_emissora" />
+    <EntitySet Name="tv_rede" EntityType="Self.tv_rede" />
+    <EntitySet Name="tv_tipo_rede" EntityType="Self.tv_tipo_rede" />
+    <AssociationSet Name="fk_geo_bra_cid_x_geo_bra_uf" Association="Self.fk_geo_bra_cid_x_geo_bra_uf">
+      <End Role="geo_brasil_uf" EntitySet="geo_brasil_uf" />
+      <End Role="geo_brasil_cidade" EntitySet="geo_brasil_cidade" />
+    </AssociationSet>
+    <AssociationSet Name="fk_geo_bra_mes_x_geo_bra_uf" Association="Self.fk_geo_bra_mes_x_geo_bra_uf">
+      <End Role="geo_brasil_uf" EntitySet="geo_brasil_uf" />
+      <End Role="geo_brasil_meso" EntitySet="geo_brasil_meso" />
+    </AssociationSet>
+    <AssociationSet Name="fk_geo_bra_mic_x_geo_bra_mes" Association="Self.fk_geo_bra_mic_x_geo_bra_mes">
+      <End Role="geo_brasil_meso" EntitySet="geo_brasil_meso" />
+      <End Role="geo_brasil_micro" EntitySet="geo_brasil_micro" />
+    </AssociationSet>
+    <AssociationSet Name="fk_tv_emi_x_tv_red" Association="Self.fk_tv_emi_x_tv_red">
+      <End Role="tv_rede" EntitySet="tv_rede" />
+      <End Role="tv_emissora" EntitySet="tv_emissora" />
+    </AssociationSet>
+    <AssociationSet Name="fk_tv_red_x_tv_tip_red" Association="Self.fk_tv_red_x_tv_tip_red">
+      <End Role="tv_tipo_rede" EntitySet="tv_tipo_rede" />
+      <End Role="tv_rede" EntitySet="tv_rede" />
+    </AssociationSet>
+    <AssociationSet Name="tv_emissora_cobertura" Association="Self.tv_emissora_cobertura">
+      <End Role="tv_emissora" EntitySet="tv_emissora" />
+      <End Role="geo_brasil_cidade" EntitySet="geo_brasil_cidade" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
